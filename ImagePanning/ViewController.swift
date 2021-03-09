@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addImageView()
-        // Do any additional setup after loading the view.
-//        self.panImageView.isUserInteractionEnabled = true
     }
     
+    
+    // addding image view and pan gesture recogniser to image view.
     func addImageView() {
         let ImageView = UIImageView(frame: CGRect(x: 100,y: 100,width: 50,height: 50))
         ImageView.image = UIImage.checkmark
@@ -28,10 +28,10 @@ class ViewController: UIViewController {
         ImageView.addGestureRecognizer(pan)
         
     }
-
+    
+    
+    //moving the image view back to center after user releases touch
     @objc func didTapPan(sender: UIPanGestureRecognizer) {
-        
-        
         let translation = sender.translation(in: self.view)
         if let view = sender.view {
          view.center = CGPoint(x:view.center.x + translation.x,
